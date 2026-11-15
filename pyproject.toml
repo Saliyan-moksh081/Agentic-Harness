@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchpilot"
+version = "0.1.0"
+description = "A sandboxed coding-agent benchmark using Google ADK and Amazon Bedrock"
+requires-python = ">=3.11"
+dependencies = [
+    "google-adk>=1.0.0",
+    "litellm>=1.84.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0"]
+
+[tool.setuptools.packages.find]
+include = ["agent_harness*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
